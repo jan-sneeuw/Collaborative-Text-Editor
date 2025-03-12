@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title><%= title || "Untitled" %></title>
+        <link rel="stylesheet" href="/style.css">
+
+        <script 
+            src="https://cdn.socket.io/4.8.1/socket.io.min.js" 
+            integrity="sha384-mkQ3/7FUtcGyoppY6bz/PORYoGqOl7/aSUMn2ymDOJcapfS6PHqxhRTMh1RR0Q6+" 
+            crossorigin="anonymous"
+        ></script>
+    </head>
+    <body data-doc-id="<%= doc_id %>">
+        <nav>
+            <h1>ColDoc</h1>
+            <button id="delete_btn">Delete</button>
+            <button id="copy_btn">Copy URL</button>
+            <a href="/">Home</a>
+        </nav>
+        <main>
+            <input type="text" id="title_input" value="<%= title || "Untitled" %>">
+            <aside id="title_status">&nbsp;</aside>
+
+            <section aria-label="users">
+                <div>
+                    <span>Editors:</span>
+                    <span id="editor_names"></span>
+                </div>
+
+                <div>
+                    <label for="name_input">Your name:</label>
+                    <input 
+                        type="text" 
+                        id="name_input" 
+                        spellcheck="false" 
+                    >
+                </div>
+            </section>
+
+            <textarea aria-label="content of the document" style="text-align: left"><%= text %></textarea>
+
+            <aside>
+                <div id="text_status">&nbsp;</div>
+                <div id="word_count"></div>
+            </aside>
+        </main>
+        <!-- Saves the id of the page, can view it using F12 in the console -->
+        <script src="/client.js"></script>
+    </body>
+</html>

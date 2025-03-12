@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Coldoc</title>
+        <link rel="stylesheet" href="/style.css">
+        <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    </head>
+    <body>
+        <header>
+            <h1>ColDoc</h1>
+            <p>Work on documents with your friends</p>
+        </header>
+        <main>
+            <form action="/new" method="POST">
+                <button>Generate new document</button>
+            </form>
+            <section id="recent_docs" hidden>
+                <h2>Recent documents</h2>
+                <ul></ul>
+                <button id="clear_btn">Clear</button>
+            </section>
+        </main>
+
+        <footer>
+            <p>
+                Documents that have not been updated for more than one year will be deleted from the database!
+            </p>
+        </footer>
+        <script src="home.js"></script>        
+    </body>
+</html>
