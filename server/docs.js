@@ -108,3 +108,19 @@ export async function delete_doc(id) {
         }
     }
 }
+
+/**
+ * Deletes documents from the database that have not been updated in the last year.
+ */
+export async function purge_old_docs(){
+    const one_year_ago = new Date(Date.now() - 365 * 24 * 60 * 60 * 1000)
+    try {
+        const result = await doc_model.deleteMany({
+            updatedAt: {$lt: one_year_ago}
+        })
+        console.log(`Deleted ${result.deletedCount} old documents`)
+    } catch (err) {
+        console.error("Could not delete old document!")
+        console.error(err)
+    }
+}

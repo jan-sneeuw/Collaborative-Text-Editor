@@ -92,13 +92,19 @@ export function handle_sockets(server) {
         }
 
         // If timeout has run out, open document for others to edit.
+        // Shows text on screen who is typing and that document has been saved.
         doc_mem[timeout_key] = setTimeout(async () => {
             doc_mem[editor_key] = null
             doc_mem[timeout_key] = null
             socket.to(doc_id).emit(allow_event, true)
-            io.to(doc_id).emit(status_event, "")
+
             const { error } = await update_doc(doc_id, { [event]: value })
-            console.error(error)
+            const save_status = error ? "Error while saving..." : "Saved!"
+            io.to(doc_id).emit(status_event, save_status)
+            setTimeout(() => {
+                if (doc_mem[editor_key]) return
+                io.to(doc_id).emit(status_event, "")
+            }, 1500)
         }, 1000)
     }
 

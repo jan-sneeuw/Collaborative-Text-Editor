@@ -13,25 +13,35 @@
         ></script>
     </head>
     <body data-doc-id="<%= doc_id %>">
-        <nav>
-            <h1>ColDoc</h1>
-            <button id="delete_btn">Delete</button>
-            <button id="copy_btn">Copy URL</button>
-            <a href="/">Home</a>
+        <nav class="nav">
+            <div class="nav_content">
+                <h1>ColDoc</h1>
+                <button class="nav_el" id="delete_btn" aria-label="delete document">
+                    <img src="/icons/trash.svg" alt="" class="icon">
+                </button>
+                <button class="copy_button nav_el" id="copy_btn" aria-label="copy URL">
+                    <img src="/icons/copy.svg" alt="" class="icon">
+                    <span aria-hidden="true">Copied URL</span>
+                </button>
+                <a class="link nav_el" href="/" aria-label="home page">
+                    <img src="/icons/home.svg" alt="" class="icon">
+                </a>
+            </div>
         </nav>
         <main>
-            <input type="text" id="title_input" value="<%= title || "Untitled" %>">
-            <aside id="title_status">&nbsp;</aside>
+            <input class="input title_input" type="text" id="title_input" value="<%= title || "Untitled" %>" aria-label="document title">
+            <aside aria-label="title status" class="status" id="title_status">&nbsp;</aside>
 
-            <section aria-label="users">
+            <section class="user_block" aria-label="users">
                 <div>
-                    <span>Editors:</span>
+                    <span class="label">Editors:</span>
                     <span id="editor_names"></span>
                 </div>
 
-                <div>
-                    <label for="name_input">Your name:</label>
+                <div class="input_group">
+                    <label class="label" for="name_input">Your name:</label>
                     <input 
+                        class="input name_input"
                         type="text" 
                         id="name_input" 
                         spellcheck="false" 
@@ -39,9 +49,9 @@
                 </div>
             </section>
 
-            <textarea aria-label="content of the document" style="text-align: left"><%= text %></textarea>
+            <textarea class="textarea" aria-label="content of the document" style="text-align: left"><%= text %></textarea>
 
-            <aside>
+            <aside aria-label="status bar" class="status status_bar">
                 <div id="text_status">&nbsp;</div>
                 <div id="word_count"></div>
             </aside>

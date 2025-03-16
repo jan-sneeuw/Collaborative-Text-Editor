@@ -247,7 +247,11 @@ function enable_copy_button() {
     copy_button.addEventListener("click", async () => {
         const url = window.location.href
         await navigator.clipboard.writeText(url)
-        window.alert("Copied URL to clipboard!")
+        // window.alert("Copied URL to clipboard!")
+        copy_button.classList.add("copied")
+        setTimeout(() => {
+            copy_button.classList.remove("copied")
+        }, 2000)
     })
 }
 

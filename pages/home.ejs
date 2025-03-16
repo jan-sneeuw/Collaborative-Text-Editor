@@ -8,18 +8,18 @@
         <link rel="icon" href="/favicon.ico" type="image/x-icon">
     </head>
     <body>
-        <header>
+        <header class="header">
             <h1>ColDoc</h1>
             <p>Work on documents with your friends</p>
         </header>
         <main>
-            <form action="/new" method="POST">
-                <button>Generate new document</button>
+            <form action="/new" method="POST" class="generate_form">
+                <button class="button">Generate new document</button>
             </form>
-            <section id="recent_docs" hidden>
+            <section class="recent_docs" id="recent_docs" hidden>
                 <h2>Recent documents</h2>
                 <ul></ul>
-                <button id="clear_btn">Clear</button>
+                <button class="button small" id="clear_btn">Clear</button>
             </section>
         </main>
 

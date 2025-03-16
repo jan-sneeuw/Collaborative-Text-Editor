@@ -1,4 +1,5 @@
 // import { doc_model } from "./model.js";
+import { purge_old_docs } from "./docs.js";
 import { connect_to_db } from "./mongodb.js";
 import { router } from "./router.js";
 import { generate_server } from "./server.js";
@@ -12,11 +13,8 @@ async function init() {
     dotenv.config()
     const server = generate_server(router)
     handle_sockets(server)
-    // console.log(process.env.MONGODB_URI)
     await connect_to_db()
-    // const doc = new doc_model()
-    // const saved_doc = await doc.save()
-    // console.log(saved_doc);
+    await purge_old_docs()
 }
 
 init()

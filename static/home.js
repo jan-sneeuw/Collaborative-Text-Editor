@@ -59,6 +59,7 @@ function display_recent_docs(recent_docs) {
         const link = document.createElement("a")
         link.href = `/document/${doc.id}`
         link.innerText = doc.title
+        link.classList.add("link")
         li.appendChild(link)
         recent_docs_list.appendChild(li)
     }
