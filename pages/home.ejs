@@ -9,23 +9,26 @@
     </head>
     <body>
         <header class="header">
-            <h1>ColDoc</h1>
-            <p>Work on documents with your friends</p>
+            <h1>Editor Project</h1>
+            <p style="font-size: 1rem;">Collaborate on text-documents with your friends and family!</p>
         </header>
         <main>
+            <br>
             <form action="/new" method="POST" class="generate_form">
-                <button class="button">Generate new document</button>
+                <button class="button shadow">Generate new document</button>
             </form>
             <section class="recent_docs" id="recent_docs" hidden>
+                <br>
                 <h2>Recent documents</h2>
                 <ul></ul>
-                <button class="button small" id="clear_btn">Clear</button>
+                <br>
+                <button class="button small" id="clear_btn">Delete all documents</button>
             </section>
         </main>
 
         <footer>
             <p>
-                Documents that have not been updated for more than one year will be deleted from the database!
+                Caution: any documents that have not been edited in the last 365 days are permanently deleted from the database.
             </p>
         </footer>
         <script src="home.js"></script>        

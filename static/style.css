@@ -9,7 +9,7 @@
 :root {
     --bg-color: #e6e6e6;
     --font-color: #222;
-    --primary-color: #e00;
+    --primary-color: rgba(5, 70, 211, 0.95); /*#e00*/
     --inverted-font-color: #fff;
     --border-color: #ddd;
     --disabled-text-color: #fee;
@@ -55,6 +55,11 @@ a {
 
 h1, h2 {
     font-weight: 600;
+    cursor: default;
+}
+
+p {
+    text-wrap: balance;
 }
 
 
@@ -79,6 +84,10 @@ h1, h2 {
 .button:focus-visible {
     outline: 2px solid var(--gray-color);
     outline-offset: 2px;
+}
+
+.shadow {
+    box-shadow: 0rem 0rem 1rem rgba(0, 0, 0, 0.2);
 }
 
 
@@ -161,7 +170,9 @@ h1, h2 {
 }
 
 footer {
-    margin-top: 2rem;
+    max-width: var(--width);
+    margin-inline: auto;
+    margin-top: 5rem;
     text-align: center;
     padding: 1rem 0;
     color: var(--gray-color);
@@ -175,15 +186,19 @@ footer p {
 
 /* NAVIGATION */
 
+nav {
+    background: linear-gradient(to right, rgba(5, 70, 211, 0.95), rgba(67, 116, 224, 0.95));
+}
+
 .nav {
-    background-color: var(--primary-color);
+    /*background-color: var(--primary-color);*/
     color: var(--inverted-font-color);
 }
 
 .nav_content {
     max-width: var(--width);
     margin-inline: auto;
-    padding: 0.5rem 1rem;
+    padding: 1rem 1rem;
     display: flex;
     align-items: center;
     gap: 1.5rem;
